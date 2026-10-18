@@ -1,0 +1,48 @@
+{
+  "name": "@kurtfrancisco/talos",
+  "version": "0.2.0",
+  "description": "Talos of Humans (formerly agent-guard): Runtime guardrails for Claude Code, Cursor, and Codex — block destructive shell, secret writes, exfil, force-push, and out-of-scope edits",
+  "license": "MIT",
+  "author": "Kurt Francisco <Fpavia111@gmail.com>",
+  "bin": {
+    "talos": "bin/agent-guard.js",
+    "agent-guard": "bin/agent-guard.js"
+  },
+  "main": "src/index.js",
+  "files": [
+    "bin/",
+    "src/",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "check": "node bin/agent-guard.js check"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fpavia111-creator/talos.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fpavia111-creator/talos/issues"
+  },
+  "homepage": "https://github.com/fpavia111-creator/talos#readme",
+  "keywords": [
+    "claude-code",
+    "cursor",
+    "codex",
+    "hooks",
+    "guardrails",
+    "security",
+    "agent",
+    "pretooluse",
+    "talos",
+    "agent-guard"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}
