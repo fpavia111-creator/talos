@@ -29,7 +29,9 @@ function emailHash(email) {
 
 function ed25519Verify(pub, msg, sig) {
   try {
-    return crypto.verify(null, msg, { key: pub, format: 'raw', type: 'ed25519' }, sig);
+    // Node has no 'raw' Ed25519 public key import before v24.x; wrap the 32-byte key as SPKI DER.
+    const der = Buffer.concat([Buffer.from('302a300506032b6570032100', 'hex'), pub]);
+    return crypto.verify(null, msg, crypto.createPublicKey({ key: der, format: 'der', type: 'spki' }), sig);
   } catch {
     return false;
   }

@@ -1,6 +1,6 @@
 {
   "name": "@kurtfrancisco/talos",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Talos of Humans (formerly agent-guard): Runtime guardrails for Claude Code, Cursor, and Codex — block destructive shell, secret writes, exfil, force-push, and out-of-scope edits",
   "license": "MIT",
   "author": "Kurt Francisco <Fpavia111@gmail.com>",

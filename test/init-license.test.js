@@ -50,6 +50,22 @@ describe('init + license', () => {
     assert.match(r.stdout, /strict/);
   });
 
+  it('validates a real Ed25519-signed SKS2 key and rejects tampered or wrong-product keys', () => {
+    const crypto = require('node:crypto');
+    const { privateKey, publicKey } = crypto.generateKeyPairSync('ed25519');
+    const pubHex = publicKey.export({ format: 'der', type: 'spki' }).subarray(12).toString('hex');
+    const mk = (p) => {
+      const payload = Buffer.from(JSON.stringify({ d: '2026-10-29', eh: '0'.repeat(16), oid: 'cs_test_x', p, v: 2 }));
+      const sig = crypto.sign(null, payload, privateKey);
+      return `SKS2-${payload.toString('base64url')}.${sig.toString('base64url')}`;
+    };
+    const key = mk('agent-guard-pro');
+    assert.equal(license.validate(key, pubHex), true);
+    assert.equal(license.validate(key.slice(0, -4) + 'AAAA', pubHex), false);
+    assert.equal(license.validate(mk('leadwright-pro'), pubHex), false);
+    assert.equal(license.validate(key), false); // not signed by the shipped key
+  });
+
   it('check CLI exits 2 on deny', () => {
     const r = spawnSync(process.execPath, [bin, 'check', '--command', 'rm -rf /'], { encoding: 'utf8' });
     assert.equal(r.status, 2);
