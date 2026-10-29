@@ -4,7 +4,7 @@
 
 **Runtime guardrails for AI coding agents.** Hooks for [Claude Code](https://code.claude.com/docs/en/hooks), [Cursor](https://cursor.com/docs/agent/hooks), and [Codex](https://learn.chatgpt.com/docs/hooks) that block dangerous actions before they run.
 
-> Package: **`@kurtfrancisco/talos`** (the old `@kurtfrancisco/talos` is deprecated).
+> Package: **`@kurtfrancisco/talos`** (the old `@kurtfrancisco/agent-guard` is deprecated).
 
 Free MIT core · Pro **launch price $11** one-time (will rise later)
 

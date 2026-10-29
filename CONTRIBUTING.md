@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for helping make agent-guard safer.
+Thanks for helping make Talos safer.
 
 ## Setup
 
