@@ -93,3 +93,8 @@ Inspired by the demand shown by tools like **nah** and **Railguard**. Talos focu
 ## License
 
 MIT © Kurt Francisco
+
+
+---
+
+Need an AI agent built for your business instead of tools to build your own? See [G6daddy](https://g6daddy.com/): AI agents for any industry.
